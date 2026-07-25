@@ -1,1 +1,2 @@
-.env
+# Add to .gitignore so it never gets committed again
+echo ".env" >> .gitignore
