@@ -48,7 +48,3 @@ exports.gemini = async (req, res) => {
     res.status(500).json({ success: false, error: 'Failed to generate quiz' });
   }
 };
-
-exports.create = async(req, res) => {
-    
-}
