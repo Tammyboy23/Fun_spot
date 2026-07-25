@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 // controllers/geminiController.js
 const { GoogleGenAI } = require('@google/genai');
