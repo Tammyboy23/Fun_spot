@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {toast} from 'react-toastify'
+import { useAnimateIn } from '../hooks/useAnimateIn';
 
 const TICKETS = [
   {
@@ -28,6 +28,10 @@ const TICKETS = [
 export default function Home() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle'); // idle | loading | ok | err
+
+  const [stepsRef, stepsVisible] = useAnimateIn();
+  const [ticketsRef, ticketsVisible] = useAnimateIn();
+  const [ctaRef, ctaVisible] = useAnimateIn();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -101,17 +105,19 @@ export default function Home() {
 
       <header className="fs-container fs-hero" id="top">
         <div>
-          <span className="fs-eyebrow">AI-planned outings</span>
-          <h1>
+          <span className="fs-eyebrow hero-eyebrow">AI-planned outings</span>
+          <h1 className="hero-heading">
             Tell it the vibe.
             <br />
             It finds <em>the spot.</em>
           </h1>
-          <p className="fs-sub">
+          <p className="fs-sub hero-sub">
             Fun Spot turns a theme, a location, a budget, and a headcount into a real
             shortlist — what to do, what it costs, and a map link to get there.
           </p>
-          <WaitlistForm />
+          <div className="hero-form-wrap">
+            <WaitlistForm />
+          </div>
         </div>
 
         <div className="fs-builder" aria-hidden="true">
@@ -158,18 +164,21 @@ export default function Home() {
             <p>No endless scrolling through reviews. You give it the shape of your outing, it does the digging.</p>
           </div>
 
-          <div className="fs-steps">
-            <div className="fs-step">
+          <div
+            className={`fs-steps${stepsVisible ? ' is-visible' : ''}`}
+            ref={stepsRef}
+          >
+            <div className="fs-step delay-1">
               <span className="fs-step-num">01</span>
               <h3>Set the scene</h3>
               <p>Add a theme, a location — state, city, or country — a budget, and how many people are coming.</p>
             </div>
-            <div className="fs-step">
+            <div className="fs-step delay-3">
               <span className="fs-step-num">02</span>
               <h3>Get your shortlist</h3>
               <p>Fun Spot matches real venues and events nearby, with what to do and what it'll cost you.</p>
             </div>
-            <div className="fs-step">
+            <div className="fs-step delay-5">
               <span className="fs-step-num">03</span>
               <h3>Go have fun</h3>
               <p>Tap the map link, get directions, and show up. No more group chat back-and-forth.</p>
@@ -186,9 +195,12 @@ export default function Home() {
             <p>Every result comes as a ticket: what it is, what it costs, and where to go.</p>
           </div>
 
-          <div className="fs-tickets">
-            {TICKETS.map((t) => (
-              <div className="fs-ticket" key={t.name}>
+          <div
+            className={`fs-tickets${ticketsVisible ? ' is-visible' : ''}`}
+            ref={ticketsRef}
+          >
+            {TICKETS.map((t, i) => (
+              <div className={`fs-ticket delay-${i * 2 + 1}`} key={t.name}>
                 <div className="fs-ticket-stub">
                   <span>{t.stub}</span>
                 </div>
@@ -211,7 +223,10 @@ export default function Home() {
 
       <section className="fs-section" id="waitlist">
         <div className="fs-container">
-          <div className="fs-cta">
+          <div
+            className={`fs-cta reveal reveal-scale${ctaVisible ? ' is-visible' : ''}`}
+            ref={ctaRef}
+          >
             <div className="fs-cta-inner">
               <span className="fs-eyebrow">Launching soon</span>
               <h2>Be first through the door</h2>
