@@ -1,3 +1,5 @@
-# Add to .gitignore so it never gets committed again
+# Environment variables (contains secrets — never commit)
 .env
-echo ".env" >> .gitignore
+
+# Dependencies
+node_modules/
