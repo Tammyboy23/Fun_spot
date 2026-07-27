@@ -63,6 +63,7 @@ nav button:hover{
   display: flex;
   flex-direction: column;
   width: 40vw;
+  animation: fade-up 2.5s ease;
 }
 .hero-txt h1{
   font-size: 4rem;
@@ -143,5 +144,228 @@ nav button:hover{
 }
 /**HOW IT WORKS SECTION**/
 .how{
-  
+  display: flex;
+  flex-direction: column;
+  padding: 70px;
+}
+.how h2{
+  font-family: 'Fjalla One';
+  font-size: 2rem;
+  text-decoration: underline var(--accent);
+}
+.how h5{
+  font-family: 'JetBrains Mono';
+  color: var(--font-2);
+}
+.how-container{
+  display: flex;
+  gap: 10px;
+  padding: 40px 0px;
+}
+.how-card{
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.card-detail{
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  padding: 15px;
+}
+.how-card span{
+  display: flex;
+  font-size: 1rem;
+  background: var(--bg-3);
+  width: fit-content;
+  padding: 10px 15px;
+  font-family: 'JetBrains Mono';
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+}
+.card-detail h3{
+  font-family: 'Google Sans';
+  text-align: center;
+  font-size: 1.5rem;
+}
+.card-detail p{
+  font-family: 'JetBrains Mono';
+  color: var(--font-2);
+  font-size: 0.8rem;
+}
+.how-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 10px var(--shadow);
+}
+.join{
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  padding: 20px;
+  margin-bottom: 100px;
+  justify-content: center;
+}
+.join-card{
+  margin: 0px auto;
+  display: flex;
+  border-radius: 24px;
+  background: linear-gradient(145deg, var(--bg-2), #d4823e, var(--bg-3));
+  gap: 20px;
+  padding: 50px 40px;
+  border: 1px solid rgba(255,255,255,0.15);
+  width: 50vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.1);
+  position: relative;
+  overflow: hidden;
+}
+.join-card h1{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-family: 'outfit';
+}
+.join-card h3{
+  font-family: 'JetBrains Mono';
+  color: var(--font-2);
+  font-size: 0.8rem;
+}
+.join-form{
+  margin-top: 30px;
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.join-form input{
+  width: 100%;
+  max-width: 380px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 2px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.9);
+  font-family: 'JetBrains Mono';
+  font-size: 0.95rem;
+  transition: 0.3s ease;
+}
+.join-form input:focus{
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255,72,0,0.15);
+  background: #fff;
+}
+.join-form button{
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  font-family: 'JetBrains Mono';
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s ease;
+  letter-spacing: 0.3px;
+}
+.join-form button:hover:not(:disabled){
+  background: var(--accent-2);
+  transform: translateY(-4px);
+  box-shadow: 0px 8px 20px rgba(255,72,0,0.35);
+}
+.join-form button:active:not(:disabled){
+  transform: translateY(0px);
+  box-shadow: 0px 0px 0px transparent;
+}
+.join-form button:disabled{
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+.faq{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-2);
+  gap: 20px;
+}
+.faq h1{
+  font-family: 'Fjalla One';
+  font-size: 3rem;
+}
+details{
+  display: flex;
+  flex:1;
+  width: 30vw;
+  flex-direction: column;
+  background: var(--bg-3);
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+summary{
+  font-family: 'Google Sans';
+}
+details p{
+  font-family: 'JetBrains Mono';
+  color: var(--font-2);
+  margin-top: 15px;
+  font-size: 0.8rem;
+}
+footer{
+  margin-top: 40px;
+  text-align: center;
+  font-family: 'JetBrains Mono';
+  padding: 20px;
+  background: var(--bg-2);
+}
+@media(max-width: 900px){
+  .hero{
+    flex-direction: column;
+    gap: 60px;
+  }
+  .hero-txt{
+    width: 80vw;
+  }
+  .hero-imgs{
+    justify-content: center;
+    width: 80vw;
+  }
+  .how-container{
+    flex-direction: column;
+  }
+  .join-card{
+    width: 80vw;
+  }
+  .faq h1{
+    text-align: center;
+  }
+  details{
+    width: 70vw;
+  }
+}
+@keyframes fade-up{
+  0%{
+    opacity: 0;
+    transform: translateY(9px);
+  }
+  100%{
+    opacity: 100;
+    transform: translateY(0px);
+  }
 }
