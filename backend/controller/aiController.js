@@ -21,6 +21,7 @@ exports.gemini = async (req, res) => {
   "google_maps_url": "",
   "group_size": ,
   "total_budget_ngn": ,
+  "rating": ?/10,
   "images": [],
   "activity_breakdown": [
     {
@@ -45,6 +46,6 @@ exports.gemini = async (req, res) => {
     res.status(200).json({ message: "Event Generated Successfully", answer });
   } catch (err) {
     console.error('Gemini error:', err);
-    res.status(500).json({ success: false, error: 'Failed to generate quiz' });
+    res.status(500).json({ error: 'Failed to generate plan' });
   }
 };
