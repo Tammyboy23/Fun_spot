@@ -14,8 +14,9 @@ function Signup(){
     const signup = () => {
         if(!username || !email || !password)
             return toast.error("Fill in the inputs");
-        setload(true)
-        try{
+
+        
+            setload(true)
         fetch("https://fun-spot.onrender.com/signup", {
             method: 'POST',
             headers: {
@@ -29,12 +30,14 @@ function Signup(){
             toast.success(data.message)
             navigate('/login')
         })
-        }
-        catch(err){
+        
+        .catch((err) => {
             console.error(err)
             toast.error(err)
-        }
-        setload(false)
+        })
+        .finally(() => {
+            setload(false)
+        })
         
 
     }

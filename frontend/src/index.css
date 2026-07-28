@@ -458,7 +458,9 @@ footer{
   gap: 10px;
 }
 .sla{
-  width: 10vw;
+  display: flex;
+  width: fit-content;
+  flex: 1;
   height: 1px;
   background: var(--font-2);
 }
@@ -470,7 +472,7 @@ a{
 }
 .sign-form button:disabled{
   background: var(--bg-3);
-  cursor: disabled;
+  cursor: not-allowed;
 }
 .login{
   display: flex;
@@ -495,7 +497,52 @@ a{
 }
 .login-box p{
   color: var(--font-2);
-  
+  font-family: 'outfit';
+  text-align: center;
+}
+.login-form{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.login-input{
+  display: flex;
+  background: var(--bg-3);
+  padding: 10px;
+  border-radius: 12px;
+  gap: 10px;
+}
+.login-input input{
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.login-input input::placeholder{
+  color: var(--font-2);
+}
+.login-form label{
+  font-family: outfit;
+}
+.login-form button{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  padding: 10px 20px;
+  font-family: 1.2rem;
+  cursor: pointer;
+}
+.login-form button:hover{
+  background: var(--accent-2);
+}
+.login-form button:disabled{
+  background: var(--accent-2);
+  cursor: not-allowed;
 }
 @media(max-width: 900px){
   .sla{
