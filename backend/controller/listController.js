@@ -12,7 +12,7 @@ exports.list = async(req, res) => {
     const resend = new Resend(process.env.RESEND_API);
 
     if(user)
-        return res.status(409).json({message: "Account exists"});
+        return res.status(409).json({message: "Account already on waitlist"});
 
 
     const send = await pool.query("INSERT INTO list(email) VALUES(?)", [email]);
@@ -64,7 +64,7 @@ exports.list = async(req, res) => {
           <table role="presentation" cellpadding="0" cellspacing="0" style="margin:35px auto 10px;">
             <tr>
               <td align="center" bgcolor="#3b82f6" style="border-radius:10px;">
-                <a href="https://yourwebsite.com"
+                <a href="https://fun-spot.netlify.app"
                    style="display:inline-block;padding:15px 34px;color:#ffffff;text-decoration:none;font-size:16px;font-weight:600;">
                   Visit Website
                 </a>
