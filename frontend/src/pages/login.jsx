@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { LuEye, LuEyeClosed, LuLock, LuMail, } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ScaleLoader } from "react-spinners";
 import { toast } from "react-toastify";
 
@@ -9,6 +9,7 @@ function Login(){
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const [load, setload] = useState(false)
+    const navigate = useNavigate()
     const login = () => {
         
         if(!email || !password)
@@ -24,14 +25,16 @@ function Login(){
         })
         .then(res => res.json())
         .then((data) => {
-            console.log(data)
+            if(data.error) return toast.error(data.error);
+            if(!data.token) return toast.error("Invalid response from server");
             toast.success(data.message)
             localStorage.setItem("token", data.token)
+            localStorage.setItem("user", JSON.stringify(data.users))
+            navigate('/')
         })
-        
         .catch((err) => {
             console.log(err)
-            toast.error(err)
+            toast.error(err.message || "Login failed. Please try again.")
         })
         .finally(() => {
             setload(false)

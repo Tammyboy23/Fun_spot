@@ -6,11 +6,11 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 exports.gemini = async (req, res) => {
   try {
-    const { location, budget, people , theme} = req.body; // pull only what you need
+    const { location, budget, people , theme, budget_type} = req.body; // pull only what you need
 
     // Fixed prompt template with variables plugged in
    const prompt = `
-    i want you to do deep research and find me places within ${location} where a number of ${people} people can have a theme of ${theme} within a budget of ${budget} naira 
+    i want you to do deep research and find me places within ${location} where a number of ${people} people can have a theme of ${theme} within a budget of ${budget} naira ${budget_type}
     and return a json response like this
     let there be as many options as you can recommend
     option: [{

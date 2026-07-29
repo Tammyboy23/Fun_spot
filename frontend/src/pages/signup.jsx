@@ -26,14 +26,13 @@ function Signup(){
         })
         .then(res => res.json())
         .then((data) => {
-            console.log(data)
+            if(data.error) return toast.error(data.error);
             toast.success(data.message)
             navigate('/login')
         })
-        
         .catch((err) => {
             console.error(err)
-            toast.error(err)
+            toast.error(err.message || "Signup failed. Please try again.")
         })
         .finally(() => {
             setload(false)
