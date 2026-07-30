@@ -810,6 +810,71 @@ a{
   background: #f5f5f5;
   color: var(--accent);
 }
+/* ===== SKELETON LOADING ===== */
+.skeleton-container{
+  padding: 30px;
+  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.skeleton-card{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+  border-radius: 16px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.skeleton-img{
+  height: 180px;
+  background: linear-gradient(90deg, var(--bg-3) 25%, #e8a565 50%, var(--bg-3) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+.skeleton-body{
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.skeleton-line{
+  height: 14px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--bg-3) 25%, #e8a565 50%, var(--bg-3) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+.skeleton-line-sm{
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--bg-3) 25%, #e8a565 50%, var(--bg-3) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+.skeleton-line.w40{ width: 40%; }
+.skeleton-line.w60{ width: 60%; }
+.skeleton-line.w80{ width: 80%; }
+.skeleton-line.w100{ width: 100%; }
+.skeleton-line-sm.w30{ width: 30%; }
+.skeleton-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.skeleton-tag{
+  height: 22px;
+  width: 70px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, var(--bg-3) 25%, #e8a565 50%, var(--bg-3) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer{
+  0%{ background-position: 200% 0; }
+  100%{ background-position: -200% 0; }
+}
 /* HOME PAGE */
 .home-box{
   display: flex;
@@ -967,19 +1032,6 @@ a{
   font-family: 'JetBrains Mono';
   font-weight: 400;
 }
-.places-loading{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
-  gap: 16px;
-}
-.places-loading p{
-  font-family: 'JetBrains Mono';
-  font-size: 0.9rem;
-  color: var(--font-2);
-}
 .places-empty{
   text-align: center;
   padding: 60px 20px;
@@ -1099,6 +1151,7 @@ a{
   .home-row{
     grid-template-columns: 1fr;
   }
+  .skeleton-container,
   .places-container{
     grid-template-columns: repeat(2, 1fr);
   }

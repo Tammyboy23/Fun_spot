@@ -151,7 +151,7 @@ function Home(){
                             <div className="home-field">
                                 <label>₦ Budget</label>
                                 <div className="home-input">
-                                <input type="text" placeholder='How much being spent' value={budget} onChange={(e) => {
+                                <input type="tel" placeholder='How much being spent' value={budget} onChange={(e) => {
                                     const raw = e.target.value.replace(/,/g, '').replace(/[^0-9]/g, '')
                                     setbudgetRaw(raw)
                                     setbudget(raw ? Number(raw).toLocaleString() : '')
@@ -189,9 +189,20 @@ function Home(){
                 )}
                 </div>
                 {getload && (
-                    <div className="places-loading">
-                        <ScaleLoader height={20} width={5} color='var(--accent)' />
-                        <p>Searching for the best spots...</p>
+                    <div className="skeleton-container">
+                        {[1,2,3,4].map((n) => (
+                            <div className="skeleton-card" key={n}>
+                                <div className="skeleton-img" />
+                                <div className="skeleton-body">
+                                    <div className="skeleton-row">
+                                        <div className="skeleton-line w60" />
+                                        <div className="skeleton-line-sm w30" />
+                                    </div>
+                                    <div className="skeleton-line w100" />
+                                    <div className="skeleton-tag" />
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 )}
                 {places.length > 0 && (
